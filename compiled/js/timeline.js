@@ -4313,7 +4313,6 @@ if(typeof VMM != 'undefined' && typeof VMM.ExternalAPI == 'undefined') {
 			create: function(m) {
 				trace("WEB THUMB CREATE");
 				
-                trace(m);
 				var thumb_url	= "http://free.pagepeeker.com/v2/thumbs.php?";
 					url			= m.id.replace("http://", "");//.split("/")[0];
 					
@@ -9501,7 +9500,8 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 										tag:			getGVar(dd.gsx$tag),
 										asset: {
 											media:		getGVar(dd.gsx$media),
-											credit:		getGVar(dd.gsx$mediacredit),
+											screenshot: getGVar(dd.gsx$screenshot),
+                                            credit:		getGVar(dd.gsx$mediacredit),
 											caption:	getGVar(dd.gsx$mediacaption),
 											thumbnail:	getGVar(dd.gsx$mediathumbnail)
 										}

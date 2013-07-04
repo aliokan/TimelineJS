@@ -263,7 +263,8 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 										tag:			getGVar(dd.gsx$tag),
 										asset: {
 											media:		getGVar(dd.gsx$media),
-											credit:		getGVar(dd.gsx$mediacredit),
+											screenshot: getGVar(dd.gsx$screenshot),
+                                            credit:		getGVar(dd.gsx$mediacredit),
 											caption:	getGVar(dd.gsx$mediacaption),
 											thumbnail:	getGVar(dd.gsx$mediathumbnail)
 										}
