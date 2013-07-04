@@ -4312,15 +4312,25 @@ if(typeof VMM != 'undefined' && typeof VMM.ExternalAPI == 'undefined') {
 			
 			create: function(m) {
 				trace("WEB THUMB CREATE");
-				
-				var thumb_url	= "http://free.pagepeeker.com/v2/thumbs.php?";
-					url			= m.id.replace("http://", "");//.split("/")[0];
-					
-				// Main Image
-				VMM.attachElement("#" + m.uid, "<a href='" + m.id + "' target='_blank'><img src='" + thumb_url + "size=x&url=" + url + "'></a>");
-				
-				// Thumb
-				VMM.attachElement("#" + m.uid + "_thumb", "<img src='" + thumb_url + "size=t&url=" + url + "'>");
+				trace(m);
+                if(m.screenshot != null && m.screenshot != "")
+                {
+                    // Main Image
+                    VMM.attachElement("#" + m.uid, "<a href='" + m.id + "' target='_blank'><img src='" + m.screenshot + "'></a>");
+                    
+                    // Thumb
+                    VMM.attachElement("#" + m.uid + "_thumb", "<img src='" + m.screenshot + "'>");
+                } else
+                {
+                    var thumb_url	= "http://free.pagepeeker.com/v2/thumbs.php?";
+                        url			= m.id.replace("http://", "");//.split("/")[0];
+                        
+                    // Main Image
+                    VMM.attachElement("#" + m.uid, "<a href='" + m.id + "' target='_blank'><img src='" + thumb_url + "size=x&url=" + url + "'></a>");
+                    
+                    // Thumb
+                    VMM.attachElement("#" + m.uid + "_thumb", "<img src='" + thumb_url + "size=t&url=" + url + "'>");
+                }
 			},
 			
 			pushQue: function() {
@@ -4456,7 +4466,6 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 			
 			if (data.media != null && data.media != "") {
 				var mediaElem = "", captionElem = "", creditElem = "", _id = "", isTextMedia = false, m;
-				
 				m = VMM.MediaType(data.media); //returns an object with .type and .id
 				m.uid = uid;
 				_valid = true;
@@ -4552,6 +4561,8 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 				} else if (m.type		==	"website") { 
 					
 					mediaElem			=	"<div class='media-shadow website' id='" + m.uid + "'>" + loading_messege + "</div>";
+                    if(data.media.asset != null && data.media.asset.screenshot != null && data.media.asset.screenshot != "") m.screenshot = data.media.asset.screenshot;
+				
 					VMM.ExternalAPI.webthumb.get(m);
 					//mediaElem			=	"<div class='media-shadow website'><a href='" + m.id + "' target='_blank'>" + "<img src='http://api1.thumbalizr.com/?url=" + m.id.replace(/[\./]$/g, "") + "&width=300' class='media-image'></a></div>";
 					
