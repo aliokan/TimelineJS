@@ -9625,7 +9625,7 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 									name: 		""
 								};
 								
-							//trace(cell);
+							trace(cell);
 							
 							if (cell.row == 1) {
 								if (cell.content == "Start Date") {
