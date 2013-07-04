@@ -22,4 +22,4 @@
 ================================================== */
 // @codekit-prepend "VMM.Timeline.js";
 
-VMM.debug = true;
+VMM.debug = false;
