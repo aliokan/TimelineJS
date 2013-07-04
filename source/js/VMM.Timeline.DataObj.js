@@ -366,6 +366,7 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 								tag:			"",
 								asset: {
 									media:		"",
+									screenshot: "",
 									credit:		"",
 									caption:	"",
 									thumbnail:	""
@@ -399,6 +400,8 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 									column_name = "text";
 								} else if (cell.content == "Media") {
 									column_name = "media";
+								} else if (cell.content == "Media Capture") {
+									column_name = "screenshot";
 								} else if (cell.content == "Media Credit") {
 									column_name = "credit";
 								} else if (cell.content == "Media Caption") {
@@ -451,6 +454,7 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 										tag:			date.tag,
 										asset: {
 											media:		date.media,
+                                            screenshot: date.screenshot,
 											credit:		date.credit,
 											caption:	date.caption,
 											thumbnail:	date.thumbnail
@@ -563,7 +567,8 @@ if (typeof VMM.Timeline !== 'undefined' && typeof VMM.Timeline.DataObj == 'undef
 							"slug": 		"", 
 				            "text": 		"",
 				            "asset": {
-								"media": 	"", 
+								"media": 	"",
+                                "screenshot": 	"",
 								"credit": 	"", 
 								"caption": 	"" 
 							}
