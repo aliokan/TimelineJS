@@ -4561,7 +4561,7 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 				} else if (m.type		==	"website") { 
 					
 					mediaElem			=	"<div class='media-shadow website' id='" + m.uid + "'>" + loading_messege + "</div>";
-                    console.log(data.media);
+                    console.log(data);
                     if(data.media.asset != null && data.media.asset.screenshot != null && data.media.asset.screenshot != "") 
                     {
                         trace(m);
