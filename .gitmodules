@@ -1,6 +1,6 @@
 [submodule "source/js/Core"]
 	path = source/js/Core
-	url = https://aliokan@github.com/VeriteCo/StoryJS-Core.git
+	url = https://aliokan@github.com/aliokan/StoryJS-Core.git
 [submodule "source/less/Core"]
 	path = source/less/Core
 	url = https://zachwise@github.com/VeriteCo/StoryJS-Core-CSS.git
