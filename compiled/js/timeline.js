@@ -4561,11 +4561,11 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 				} else if (m.type		==	"website") { 
 					
 					mediaElem			=	"<div class='media-shadow website' id='" + m.uid + "'>" + loading_messege + "</div>";
-                    trace(data.media.asset.screenshot);
+                    trace(data.media.asset);
                     if(data.media.asset != null && data.media.asset.screenshot != null && data.media.asset.screenshot != "") 
                     {
                         trace(m);
-                        trace(data.media.asset.screenshot);
+                        trace(data.media.asset.screenshot );
                         m.screenshot = data.media.asset.screenshot;
                         trace(m);
                     }
