@@ -4312,7 +4312,7 @@ if(typeof VMM != 'undefined' && typeof VMM.ExternalAPI == 'undefined') {
 			
 			create: function(m) {
 				trace("WEB THUMB CREATE");
-				trace(m);
+
                 if(m.screenshot != null && m.screenshot != "")
                 {
                     // Main Image
@@ -4466,6 +4466,7 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 			
 			if (data.media != null && data.media != "") {
 				var mediaElem = "", captionElem = "", creditElem = "", _id = "", isTextMedia = false, m;
+                
 				m = VMM.MediaType(data.media); //returns an object with .type and .id
 				m.uid = uid;
 				_valid = true;
@@ -4561,8 +4562,8 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 				} else if (m.type		==	"website") { 
 					
 					mediaElem			=	"<div class='media-shadow website' id='" + m.uid + "'>" + loading_messege + "</div>";
-                    if(data.screenshot != null && data.screenshot != "") m.screenshot = data.screenshot;
-				
+                    // ADD SCREENSHOT 
+                    if(data.media.asset != null && data.media.asset.screenshot != null && data.media.asset.screenshot != "") m.screenshot = data.media.asset.screenshot;
 					VMM.ExternalAPI.webthumb.get(m);
 					//mediaElem			=	"<div class='media-shadow website'><a href='" + m.id + "' target='_blank'>" + "<img src='http://api1.thumbalizr.com/?url=" + m.id.replace(/[\./]$/g, "") + "&width=300' class='media-image'></a></div>";
 					
@@ -5975,6 +5976,14 @@ if (typeof VMM.Slider != 'undefined') {
 			timer.skinny = skinny;
 			
 			buildSlide();
+			
+            // Assign appropriate colors to slide-tags
+			$("span.slide-tag:contains('Démocratie & Citoyenneté')").addClass('slide-tag-democratie');
+			$("span.slide-tag:contains('Femmes')").addClass('slide-tag-femmes');
+			$("span.slide-tag:contains('Monde')").addClass('slide-tag-monde');
+            $("span.slide-tag:contains('Territoires')").addClass('slide-tag-territoires');
+			$("span.slide-tag:contains('Gouvernance économique')").addClass('slide-tag-gouvernance');
+			$("span.slide-tag:contains('Europe sociale')").addClass('slide-tag-europe');
 			
 			clearTimeout(timer.pushque);
 			clearTimeout(timer.render);
