@@ -4563,7 +4563,8 @@ if(typeof VMM != 'undefined' && typeof VMM.MediaElement == 'undefined') {
 					
 					mediaElem			=	"<div class='media-shadow website' id='" + m.uid + "'>" + loading_messege + "</div>";
                     // ADD SCREENSHOT 
-                    if(data.media.asset != null && data.media.asset.screenshot != null && data.media.asset.screenshot != "") m.screenshot = data.media.asset.screenshot;
+                    if(data.screenshot != null && data.screenshot != "") m.screenshot = data.screenshot;
+                    // if(data.media.asset != null && data.media.asset.screenshot != null && data.media.asset.screenshot != "") m.screenshot = data.media.asset.screenshot;
 					VMM.ExternalAPI.webthumb.get(m);
 					//mediaElem			=	"<div class='media-shadow website'><a href='" + m.id + "' target='_blank'>" + "<img src='http://api1.thumbalizr.com/?url=" + m.id.replace(/[\./]$/g, "") + "&width=300' class='media-image'></a></div>";
 					
